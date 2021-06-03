@@ -2,6 +2,7 @@ export const navBarStyles = theme => {
     return({
         appBar: {
             backgroundColor: '#f5ab00',
+            position: 'static'
 
         },
         toolBar:{
