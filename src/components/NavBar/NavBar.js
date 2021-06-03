@@ -1,37 +1,9 @@
 import React from 'react'
 import { AppBar, Toolbar, Typography, Button } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
+import { navBarStyles } from './NavBarStyles'
 
-const useStyle = makeStyles(theme => ({
-    root:{
-        display: 'flex'
-    },
-    appBar: {
-        backgroundColor: '#f5ab00',
-
-    },
-    toolBar:{
-        paddingTop: 10,
-        paddingBottom: 10,
-        paddingRight: 20,
-        paddingLeft: 20 
-    },
-    title:{
-        flexGrow: 1,
-        fontFamily: 'Rubik',   
-        fontWeight: 400 
-    },
-    buttons:{
-        color: '#5c4000',
-        fontSize: '1rem',
-        fontWeight: 400,
-        fontFamily: 'Rubik',
-        '&:hover':{
-            color: '#ffffff',
-            backgroundColor: 'transparent'
-        }
-    },
-}))
+const useStyle = makeStyles((theme) => navBarStyles(theme));
 
 export const NavBar = props => {
     const classes = useStyle()
