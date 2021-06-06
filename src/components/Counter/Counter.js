@@ -1,27 +1,45 @@
 import React, { useState } from 'react';
-import { IconButton, Typography } from '@material-ui/core';
+import { IconButton, Typography, Button} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles'
 import { counterStyles } from './CounterStyles'
-import { PlusOne } from '@material-ui/icons';
-import moment from 'moment';
+import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
+import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 
 const useStyle = makeStyles((theme) => counterStyles(theme));
 
 export const Counter = () => {
     const classes = useStyle()
     const [count, setCount] = useState(0);
-    const [dateAndHour, setDateAndHour] = useState(undefined);
-    const handleChange = () => {
+
+    const handleChangeCount = () => {
         setCount(count+1);
-        setDateAndHour(moment().format('DD-MM-YYYY HH:mm:ss')); 
     }
-    return<div className={classes.container}> 
+    const handleChangeDiscount = () => {
+        setCount(count-1);
+    }
+
+    return<div className={classes.generalContainer}> 
+        <div className={classes.container}>
+            <Typography variant="h4" className={classes.counter}>{count}</Typography>
+            <div className={classes.buttonsContainer}>
+                <IconButton className={classes.counterButtons} onClick={e => handleChangeCount()} disabled={count <=5 ? false : true}>
+                    <AddCircleOutlineIcon/>
+                </IconButton>
+                <IconButton className={classes.counterButtons} onClick={e => handleChangeDiscount()} disabled={count === 0 ? true : false}>
+                    <RemoveCircleOutlineIcon/>
+                </IconButton>
+            </div>
+        </div>
         <div>
-        <Typography variant="h4">Hiciste click {count} {count === 1 ? 'vez' : 'veces'}</Typography>
-        {dateAndHour && <Typography variant='h5'>{dateAndHour}</Typography>}
-        <IconButton onClick={e => handleChange()} color="secondary">
-            <PlusOne/>
-        </IconButton>
+            <div className={classes.container}>
+                <Button 
+                    className={classes.buttonCart}
+                    startIcon={<AddShoppingCartIcon/>}
+                >
+                    Agregar al carrito
+                </Button>
+            </div>
         </div>
     </div>
 }
