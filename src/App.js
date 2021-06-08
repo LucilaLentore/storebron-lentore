@@ -9,7 +9,7 @@ const App = props =>{
   return<>
     <NavBar />
     <ItemListContainer userName="Ale"/>
-    <Counter/>
+    <Counter stock={5} valorInicial={1}/>
   </>
 }
 

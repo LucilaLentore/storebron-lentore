@@ -8,9 +8,11 @@ import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 
 const useStyle = makeStyles((theme) => counterStyles(theme));
 
-export const Counter = () => {
+export const Counter = props => {
+    const {stock, valorInicial} = props;
+
     const classes = useStyle()
-    const [count, setCount] = useState(0);
+    const [count, setCount] = useState(valorInicial);
 
     const handleChangeCount = () => {
         setCount(count+1);
@@ -18,15 +20,18 @@ export const Counter = () => {
     const handleChangeDiscount = () => {
         setCount(count-1);
     }
-
+    
+    const onAdd = () => {
+        console.log(`Compraste con éxito ${count} items`)
+    }
     return<div className={classes.generalContainer}> 
         <div className={classes.container}>
             <Typography variant="h4" className={classes.counter}>{count}</Typography>
             <div className={classes.buttonsContainer}>
-                <IconButton className={classes.counterButtons} onClick={e => handleChangeCount()} disabled={count <=5 ? false : true}>
+                <IconButton className={classes.counterButtons} onClick={e => handleChangeCount()} disabled={count < stock ? false : true}>
                     <AddCircleOutlineIcon/>
                 </IconButton>
-                <IconButton className={classes.counterButtons} onClick={e => handleChangeDiscount()} disabled={count === 0 ? true : false}>
+                <IconButton className={classes.counterButtons} onClick={e => handleChangeDiscount()} disabled={count === valorInicial ? true : false}>
                     <RemoveCircleOutlineIcon/>
                 </IconButton>
             </div>
@@ -36,6 +41,8 @@ export const Counter = () => {
                 <Button 
                     className={classes.buttonCart}
                     startIcon={<AddShoppingCartIcon/>}
+                    onClick={ e => onAdd()}
+                    disabled={stock === 0 ? true : false}
                 >
                     Agregar al carrito
                 </Button>
