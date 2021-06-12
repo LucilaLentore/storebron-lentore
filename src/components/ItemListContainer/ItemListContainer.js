@@ -1,8 +1,9 @@
 import React from 'react';
-import { Typography } from '@material-ui/core'
+import { ItemList } from '../ItemList/ItemList.js';
+
 export const ItemListContainer = props =>{
-    const {userName} = props;
+
     return<>
-        <Typography variant='h2' align='center'>¡Nos vemos pronto, {userName}!</Typography>
+        <ItemList/>
     </>
 }

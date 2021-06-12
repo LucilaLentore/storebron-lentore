@@ -14,7 +14,7 @@ export const NavBar = props => {
                 <Typography variant='h3' className={classes.title}>
                     StoreBron
                 </Typography>
-                <Button variant='h4' className={classes.buttons}>Zapatillas</Button>
+                <Button variant='h4' className={classes.buttons}>Camisetas</Button>
                 <Button variant='h4' className={classes.buttons}>Pelotas</Button>
                 <Button variant='h4' className={classes.buttons}>Aros</Button>
                 <CartWidget/>
