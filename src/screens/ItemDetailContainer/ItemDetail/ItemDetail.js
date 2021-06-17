@@ -6,9 +6,9 @@ import LocalShippingIcon from '@material-ui/icons/LocalShipping';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import { Counter } from '../../../components/Counter/Counter';
-import { itemDetailContainerStyles } from '../ItemDetailContainerStyles';
+import { itemDetailStyles } from './ItemDetailStyles';
 
-const useStyle = makeStyles((theme) => itemDetailContainerStyles(theme));
+const useStyle = makeStyles((theme) => itemDetailStyles(theme));
 
 export const ItemDetail = props => {
 
@@ -21,7 +21,8 @@ export const ItemDetail = props => {
             direction="row"
             justify="center"
             alignItems="center"
-            spacing={2}>
+            spacing={2}
+            className={classes.gridContainer}>
             <Grid item xs={12} lg={4}>
                 <Card>
                     <CardMedia

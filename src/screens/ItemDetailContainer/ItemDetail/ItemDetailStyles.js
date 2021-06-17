@@ -1,8 +1,11 @@
 const commonWeight = {
     fontWeight: 'bold',
 }
-export const itemDetailContainerStyles = theme => {
+export const itemDetailStyles = theme => {
     return({
+        gridContainer:{
+            marginTop: '20px'
+        },
         precio:{
             fontSize: '50px'
         },

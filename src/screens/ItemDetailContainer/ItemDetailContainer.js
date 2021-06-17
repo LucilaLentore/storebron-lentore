@@ -4,6 +4,7 @@ import { ItemDetail } from './ItemDetail/ItemDetail.js'
 const myPromiseDetalleProducto = () => {
     return new Promise ((resolve, reject) => {
         setTimeout(() => resolve (
+            [
                 {
                     id: 28, 
                     title: 'Camiseta Denver Nuggets - Facu Campazzo', 
@@ -21,7 +22,8 @@ const myPromiseDetalleProducto = () => {
                     },
                     freeShipping: true,
                     material: 'Lycra'
-                }
+                } 
+            ]
         ), 2000)
     })
 }
@@ -37,6 +39,9 @@ export const ItemDetailContainer = props => {
     }, []);
 
     return<>
-        <ItemDetail detalleProducto={detalleProducto}/>
+        {
+            detalleProducto.map((detalle) => <ItemDetail detalleProducto={detalle}/> )
+        }
+        
     </>
 }
