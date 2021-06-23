@@ -16,6 +16,15 @@ export const itemStyles = theme => {
             fontSize: '20px',
             fontWeight: 'bold',
             marginBottom: '5px'
+        },
+        titleLink:{
+            textDecoration: 'none',
+            '&:visited':{
+                color: '#000000'
+            },
+            '&:hover':{
+                color: '#f5ab00'
+            }
         }
     })
 }

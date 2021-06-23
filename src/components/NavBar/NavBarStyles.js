@@ -14,7 +14,11 @@ export const navBarStyles = theme => {
         title:{
             flexGrow: 1,
             fontFamily: 'Rubik',   
-            fontWeight: 400 
+            fontWeight: 400
+        },
+        titleLink:{
+            textDecoration: 'none',
+            color: '#ffffff'
         },
         buttons:{
             color: '#5c4000',
@@ -24,7 +28,14 @@ export const navBarStyles = theme => {
             '&:hover':{
                 color: '#ffffff',
                 backgroundColor: 'transparent'
-            }
+            },
+            textDecoration: 'none',
+            padding: '0.5rem',
+            textTransform: 'uppercase'
+        },
+        list:{
+            listStyle: 'none',
+            display: 'flex'
         }
     })
 }

@@ -8,6 +8,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import { Counter } from '../Counter/Counter.js'
+import { Link } from 'react-router-dom';
 
 const useStyle = makeStyles((theme) => itemStyles(theme));
 
@@ -25,7 +26,11 @@ export const Item = props => {
                     title= {producto.picture.alt}
                 />
                 <CardContent>
-                    <Typography  component="h2" className={classes.titulo}>{producto.title}</Typography>
+                    <Typography  component="h2" className={classes.titulo}>
+                        <Link className={classes.titleLink} to={`/product/${producto.id}`}>
+                        {producto.title}
+                        </Link>
+                    </Typography>
                     <Typography  color="textSecondary" component="p">{producto.description}</Typography>
                     <Typography  className={classes.precio}>${producto.price}</Typography>
                     <Typography  variant="h6" component="p">ID: {producto.id}</Typography>

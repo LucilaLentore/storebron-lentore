@@ -1,22 +1,35 @@
 import React from 'react'
-import { AppBar, Toolbar, Typography, Button } from '@material-ui/core'
+import { AppBar, Toolbar, Typography} from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import { navBarStyles } from './NavBarStyles'
 import { CartWidget } from './components/CartWidget/CartWidget'
+import { Link } from 'react-router-dom';
 
 const useStyle = makeStyles((theme) => navBarStyles(theme));
 
 export const NavBar = props => {
+    const camisetas = "camisetas"
+    const pelotas = "pelotas"
+    const aros = "aros"
+
     const classes = useStyle()
     return <>
         <AppBar className={classes.appBar}>
             <Toolbar className={classes.toolBar}>
                 <Typography variant='h3' className={classes.title}>
-                    StoreBron
+                    <Link className={classes.titleLink} to={'/'}>StoreBron</Link>
                 </Typography>
-                <Button variant='h4' className={classes.buttons}>Camisetas</Button>
-                <Button variant='h4' className={classes.buttons}>Pelotas</Button>
-                <Button variant='h4' className={classes.buttons}>Aros</Button>
+                <ul className={classes.list}>
+                    <li>
+                        <Link className={classes.buttons} to={`/category/${camisetas}`}>Camisetas</Link>
+                    </li>
+                    <li>
+                        <Link className={classes.buttons} to={`/category/${pelotas}`}>Pelotas</Link>
+                    </li>
+                    <li>
+                        <Link className={classes.buttons} to={`/category/${aros}`}>Aros</Link>
+                    </li>
+                </ul>
                 <CartWidget/>
             </Toolbar>
         </AppBar>
