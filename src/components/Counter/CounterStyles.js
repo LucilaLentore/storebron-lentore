@@ -35,7 +35,6 @@ export const counterStyles = theme => {
         buttonCart: {
             ...commonAlign,
             marginTop: '10px',
-            borderRaius: '10px',
             border: 'solid 1px #5c4000',
             fontFamily: 'Rubik',
             ...commonColor,

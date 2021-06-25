@@ -9,10 +9,10 @@ import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 const useStyle = makeStyles((theme) => counterStyles(theme));
 
 export const Counter = props => {
-    const {stock, valorInicial} = props;
+    const {stock, valorInicial, cantidadProducto, onAdd} = props;
 
     const classes = useStyle()
-    const [count, setCount] = useState(valorInicial);
+    const [count, setCount] = useState(valorInicial > cantidadProducto ? valorInicial : cantidadProducto);
 
     const handleChangeCount = () => {
         setCount(count+1);
@@ -21,9 +21,6 @@ export const Counter = props => {
         setCount(count-1);
     }
     
-    const onAdd = () => {
-        console.log(`Compraste con éxito ${count} items`)
-    }
     return<div className={classes.generalContainer}> 
         <div className={classes.container}>
             <Typography variant="h4" className={classes.counter}>{count}</Typography>
@@ -41,7 +38,7 @@ export const Counter = props => {
                 <Button 
                     className={classes.buttonCart}
                     startIcon={<AddShoppingCartIcon/>}
-                    onClick={ e => onAdd()}
+                    onClick={() => onAdd(count)}
                     disabled={stock === 0 ? true : false}
                 >
                     Agregar al carrito
