@@ -2,13 +2,16 @@ import './App.css';
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Router } from './Router/Router';
+import { CartComponentContext } from './Context/CartContext';
 
 const App = props =>{
     
   return<>
-    <BrowserRouter>
-     <Router/>
-    </BrowserRouter>
+    <CartComponentContext>
+      <BrowserRouter>
+      <Router/>
+      </BrowserRouter>
+    </CartComponentContext>
   </>
 }
 
