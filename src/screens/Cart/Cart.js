@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { CartContext } from '../../Context/CartContext'
+import { CartMessage } from './components/CartMessage/CartMessage';
+import { CartGrid } from './components/CartGrid/CartGrid';
 
-const styles={
-    textAlign: 'center'
-}
 export const Cart = () => {
+    const {itemsCart} = useContext(CartContext)
+
     return<>
-        <h2 style={styles}>Página en construcción</h2>
+      {
+        itemsCart.length === 0 ? <CartMessage/> : <CartGrid/>
+      }
     </>
+
 }

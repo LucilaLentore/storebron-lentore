@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { AppBar, Toolbar, Typography} from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import { navBarStyles } from './NavBarStyles'
 import { CartWidget } from './components/CartWidget/CartWidget'
 import { Link } from 'react-router-dom';
+import { CartContext } from '../../Context/CartContext'
 
 const useStyle = makeStyles((theme) => navBarStyles(theme));
 
 export const NavBar = props => {
+    const {itemsCart} = useContext(CartContext)
     const camisetas = "camisetas"
     const pelotas = "pelotas"
     const aros = "aros"
@@ -30,7 +32,7 @@ export const NavBar = props => {
                         <Link className={classes.buttons} to={`/category/${aros}`}>Aros</Link>
                     </li>
                 </ul>
-                <CartWidget/>
+                {itemsCart.length > 0 ? <CartWidget/> : ''}
             </Toolbar>
         </AppBar>
     </>
