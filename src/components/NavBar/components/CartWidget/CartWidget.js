@@ -3,6 +3,8 @@ import { Badge, IconButton } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { CartContext } from '../../../../Context/CartContext';
+import { Link } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 
 const StyledBadge = withStyles((theme) => ({
     badge: {
@@ -14,10 +16,11 @@ const StyledBadge = withStyles((theme) => ({
 
 export const CartWidget = props => {
     const {itemsQuantity} = useContext(CartContext)
+    const history = useHistory();
     return <>
         <IconButton aria-label="cart">
             <StyledBadge badgeContent={itemsQuantity}>
-                <ShoppingCartIcon/>
+                <Link onClick={() => history.push(`/cart`)}><ShoppingCartIcon/></Link>
             </StyledBadge>
         </IconButton>
     </>
