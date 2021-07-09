@@ -9,21 +9,34 @@ export const CartComponentContext = props => {
     const [subTotal, setSubTotal] = useState(0)  
     const [itemsQuantity, setItemsQuantity] = useState(0)   
     
+    // const addItem = productoAgregado => {
+    //     setSubTotal(subTotal + (productoAgregado.item.price * productoAgregado.quantity))
+    //     setItemsQuantity(itemsQuantity + productoAgregado.quantity)
+    //     if (itemsCart.find(itemCart => itemCart.item.id === productoAgregado.item.id)){
+    //         const actualizarItem = itemsCart.map((itemCart) => {
+    //             const cantidadTotal = itemCart.quantity + productoAgregado.quantity;
+    //             if (itemCart.item.id === productoAgregado.item.id) {
+    //                 return { ...itemCart, quantity: cantidadTotal}
+    //             } 
+    //             return itemCart
+    //         })
+    //         setItemsCart(actualizarItem)
+    //     } else {
+    //         setItemsCart(productosAgregados => [...productosAgregados, productoAgregado])
+    //     }
+    // }
+
     const addItem = productoAgregado => {
         setSubTotal(subTotal + (productoAgregado.item.price * productoAgregado.quantity))
         setItemsQuantity(itemsQuantity + productoAgregado.quantity)
-        if (itemsCart.find(itemCart => itemCart.item.id === productoAgregado.item.id)){
-            const actualizarItem = itemsCart.map((itemCart) => {
-                const cantidadTotal = itemCart.quantity + productoAgregado.quantity;
-                if (itemCart.item.id === productoAgregado.item.id) {
-                    return { ...itemCart, quantity: cantidadTotal}
-                } 
-                return itemCart
-            })
-            setItemsCart(actualizarItem)
+        const producto = itemsCart.find(itemCart => itemCart.item.id === productoAgregado.item.id)
+        if (producto){
+            const actualizarItem = producto.quantity + productoAgregado.quantity
+            producto.quantity = actualizarItem
+            setItemsCart(itemsCart)   
         } else {
-            setItemsCart(productosAgregados => [...productosAgregados, productoAgregado])
-        }
+        setItemsCart(productosAgregados => [...productosAgregados, productoAgregado])
+        }   
     }
 
     const clear = () => {
