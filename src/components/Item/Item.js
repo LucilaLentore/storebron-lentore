@@ -19,18 +19,18 @@ export const Item = props => {
             <CardActionArea>
                 <CardMedia
                     component='img'
-                    image= {producto.picture.pictureUrl}
+                    image= {producto.data.picture.pictureUrl}
                     width="200"
-                    title= {producto.picture.alt}
+                    title= {producto.data.picture.alt}
                 />
                 <CardContent>
                     <Typography  component="h2" className={classes.titulo}>
                         <Link className={classes.titleLink} to={`/product/${producto.id}`}>
-                        {producto.title}
+                        {producto.data.title}
                         </Link>
                     </Typography>
-                    <Typography  color="textSecondary" component="p">{producto.description}</Typography>
-                    <Typography  className={classes.precio}>${producto.price}</Typography>
+                    <Typography  color="textSecondary" component="p">{producto.data.description}</Typography>
+                    <Typography  className={classes.precio}>${producto.data.price}</Typography>
                     <Typography  variant="h6" component="p">ID: {producto.id}</Typography>
                 </CardContent>
             </CardActionArea>

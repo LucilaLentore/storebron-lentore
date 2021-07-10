@@ -2,19 +2,45 @@ import React, { useEffect, useState } from 'react';
 import { ItemList } from '../ItemList/ItemList.js'
 import { useParams } from 'react-router-dom';
 import { myPromise } from '../../Services/Promise/Promise.js';
+import { dataBase } from '../../Firebase/firebase'
 
 export const ItemListContainer = props => {
 
     const [productos, setProductos] = useState([])
     const {categoryId} = useParams();
 
-    useEffect(() => {
-        myPromise()
-        .then(response => categoryId === undefined ?
-            setProductos(response)
-            :
-            setProductos(response.filter(element => element.category === categoryId)
-        ))
+    useEffect(() =>{
+        const itemCollection = dataBase.collection("productos");
+        
+        if (categoryId === undefined){
+            itemCollection.get().then((querySnapshot) =>{
+                if(querySnapshot.size === 0){
+                    console.log('No results')
+                }
+                setProductos(querySnapshot.docs.map(doc => (
+                    {
+                        id: doc.id,
+                        data: doc.data()
+                    }
+                )));
+            }).catch((error) => {
+                console.log('Error:', error)
+            })
+        }else{
+            itemCollection.where("category", "==", categoryId).get().then((querySnapshot) =>{
+                if(querySnapshot.size === 0){
+                    console.log('No results')
+                }
+                setProductos(querySnapshot.docs.map(doc => (
+                    {
+                        id: doc.id,
+                        data: doc.data()
+                    }
+                )));
+            }).catch((error) => {
+                console.log('Error:', error)
+            })
+        }
     }, [categoryId])
 
     return<>
