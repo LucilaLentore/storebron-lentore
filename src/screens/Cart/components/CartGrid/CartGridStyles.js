@@ -35,5 +35,9 @@ export const cartGridStyles = theme => {
                 backgroundColor: '#5c4000',
             }
         },
+        messageOrder:{
+            marginTop: '15px',
+            textAlign: 'center'
+        }
     })
 }

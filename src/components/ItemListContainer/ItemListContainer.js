@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { ItemList } from '../ItemList/ItemList.js'
 import { useParams } from 'react-router-dom';
-import { myPromise } from '../../Services/Promise/Promise.js';
 import { dataBase } from '../../Firebase/firebase'
 
 export const ItemListContainer = props => {

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { ItemDetail } from './ItemDetail/ItemDetail.js'
 import { useParams } from 'react-router-dom';
-import { myPromise } from '../../Services/Promise/Promise.js';
 import { dataBase } from '../../Firebase/firebase.js';
 
 export const ItemDetailContainer = props => {
@@ -19,7 +18,6 @@ export const ItemDetailContainer = props => {
                 return;
             }
             setDetalleProducto([{id: doc.id, ...doc.data()}])
-            debugger;
         }).catch((error) =>{
             console.log('Error', error)
         })
