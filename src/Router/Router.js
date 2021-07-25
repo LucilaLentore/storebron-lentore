@@ -1,6 +1,6 @@
 import React from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
-import { ItemListContainer } from '../components/ItemListContainer/ItemListContainer'
+import { ItemListContainer } from '../screens/ItemListContainer/ItemListContainer';
 import { ItemDetailContainer } from '../screens/ItemDetailContainer/ItemDetailContainer'
 import { NavBar } from '../components/NavBar/NavBar';
 import { Cart } from '../screens/Cart/Cart';

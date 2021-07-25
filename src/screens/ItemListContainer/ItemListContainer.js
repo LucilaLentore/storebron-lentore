@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ItemList } from '../ItemList/ItemList.js'
+import { ItemList } from './components/ItemList/ItemList';
 import { useParams } from 'react-router-dom';
 import { dataBase } from '../../Firebase/firebase'
 
