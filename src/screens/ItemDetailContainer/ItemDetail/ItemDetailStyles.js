@@ -4,14 +4,23 @@ const commonWeight = {
 export const itemDetailStyles = theme => {
     return({
         gridContainer:{
-            marginTop: '20px'
+            marginTop: '20px',
+            [theme.breakpoints.between('xs', 'md')]:{
+                margin: 0
+            }
         },
         precio:{
-            fontSize: '50px'
+            fontSize: '50px',
+            [theme.breakpoints.only('xs')]:{
+                fontSize: '30px',
+            }
         },
         titulo:{
             ...commonWeight,
-            margin: '15px 0px'
+            margin: '15px 0px',
+            [theme.breakpoints.only('xs')]:{
+                fontSize: '2rem',
+            }
         }
     })
 }

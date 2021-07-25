@@ -3,13 +3,20 @@ export const navBarStyles = theme => {
         appBar: {
             backgroundColor: '#f5ab00',
             position: 'static'
-
         },
         toolBar:{
             paddingTop: 10,
             paddingBottom: 10,
             paddingRight: 20,
-            paddingLeft: 20 
+            paddingLeft: 20,
+            [theme.breakpoints.between('xs', 'md')]:{
+                display: 'flex',
+                position: 'relative',
+                alignItems: 'center',
+                flexWrap: 'wrap',
+                flexDirection: 'column',
+                justifyContent: 'center'
+            } 
         },
         title:{
             flexGrow: 1,
@@ -35,7 +42,10 @@ export const navBarStyles = theme => {
         },
         list:{
             listStyle: 'none',
-            display: 'flex'
+            display: 'flex',
+            [theme.breakpoints.between('xs', 'md')]:{
+                paddingLeft: '0'
+            }
         }
     })
 }
