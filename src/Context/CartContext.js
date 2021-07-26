@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from 'react';
+import React, { createContext, useState } from 'react';
 
 export const CartContext = createContext();
 
@@ -26,6 +26,7 @@ export const CartComponentContext = props => {
         setItemsCart([])
         setItemsQuantity(0)
         setSubTotal(0)
+        setOrderData('')
     }
 
     const removeItem = id => {

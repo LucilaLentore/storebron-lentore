@@ -14,8 +14,8 @@ export const OrderMessage = () => {
     const classes = useStyle();
 
     const goToIndex = () =>{
-        history.push(`/`)
         clear()
+        history.push(`/`)
     }
 
     return <div>

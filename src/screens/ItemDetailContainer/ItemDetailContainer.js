@@ -24,7 +24,7 @@ export const ItemDetailContainer = props => {
         }).catch((error) =>{
             setError(true)
         })
-    }, [])
+    }, [productId]) // eslint-disable-next-line react-hooks/exhaustive-deps
 
     return<>
         {
