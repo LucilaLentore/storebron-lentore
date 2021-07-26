@@ -44,3 +44,5 @@ El sitio puede verse deployado [AQUÍ](https://ecstatic-liskov-49e4e4.netlify.ap
     - Actualmente las imágenes se obtienen directamente desde url sacadas de internet. Lo mejor sería guardarlas en otro lugar (por ejemplo, Drive) para evitar posibles errores al cargarlas.
 - **Estilado:**
     - Al ser mi primera vez utilizando Material UI, y al estar aprendiendo cómo funciona, repetí código para estilar cada uno de los elementos. Debería aplicar estilos comunes (por ejemplo, `display: flex; justify-content: center;`).
+- **Formulario:**
+    - Validar los datos que se ingresan en los inputs.
